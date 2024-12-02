@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Logo from "./Logo";
 import Form from "./Form";
@@ -6,7 +6,14 @@ import PackingList from "./PackingList";
 import Stats from "./Stats";
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(() => {
+    const storedItems = localStorage.getItem("packingListItems");
+    return storedItems ? JSON.parse(storedItems) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("packingListItems", JSON.stringify(items));
+  }, [items]);
 
   function handleAddItem(item) {
     setItems((items) => [...items, item]);
@@ -26,7 +33,6 @@ function App() {
 
   function handleClearList() {
     const confirmed = confirm("Are you sure you want to delete all items?");
-
     if (confirmed) setItems([]);
   }
 
