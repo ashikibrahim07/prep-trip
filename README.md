@@ -1,4 +1,4 @@
-# Prep Trip  
+# Prep Trip  💼✈
 
 **Prep Trip** is a travel checklist app designed with an old-school aesthetic to bring back nostalgic vibes. The application helps you organize your travel essentials, ensuring a stress-free journey while enjoying the charm of retro design.  
 
